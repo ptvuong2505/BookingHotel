@@ -20,30 +20,30 @@
                 <h2>Sign Up <span>👤➕</span></h2>
 
                 <label for="fullname">FULL NAME </label>
-                <input type="text" name="name" id="fullname" placeholder="Full Name" value="<%= request.getAttribute("name") !=null ? request.getAttribute("name"): "" %>">               
+                <input type="text" name="name" id="fullname" placeholder="Full Name" value="<%= request.getAttribute("name") !=null ? request.getAttribute("name"): "" %>" required>               
 
                 <label for="username">USERNAME</label>
                 <input type="text" name="username" id="username" placeholder="Username" value="<%= request.getAttribute("username") !=null ? request.getAttribute("username"): "" %>" >
                 <span style="color: red;"> <%= request.getAttribute("errorMesUsername")!=null ? request.getAttribute("errorMesUsername") : "" %> </span>
 
                 <label for="email">EMAIL</label>
-                <input type="email" name="email" id="email" placeholder="Email" value="<%= request.getAttribute("email") !=null ? request.getAttribute("email"): "" %>">
+                <input type="email" name="email" id="email" placeholder="Email" value="<%= request.getAttribute("email") !=null ? request.getAttribute("email"): "" %>" required>
                 <span style="color: red;"> <%= request.getAttribute("errorMesEmail")!=null ? request.getAttribute("errorMesEmail") : "" %> </span>
                 
                 <label for="phone">PHONE NUMBER</label>
-                <input type="tel" name="phone" id="phone" placeholder="Phone Number" value="<%= request.getAttribute("phone") !=null ? request.getAttribute("phone"): "" %>">
+                <input type="tel" name="phone" id="phone" placeholder="Phone Number" value="<%= request.getAttribute("phone") !=null ? request.getAttribute("phone"): "" %>" required>
 
                 <label for="email">ADDRESS</label>
-                <input type="text" name="address" id="address" placeholder="Address" value="<%= request.getAttribute("address") !=null ? request.getAttribute("address"): "" %>" >
+                <input type="text" name="address" id="address" placeholder="Address" value="<%= request.getAttribute("address") !=null ? request.getAttribute("address"): "" %>" required>
                 <label for="password">PASSWORD</label>
                 <div class="password-field">
-                    <input type="password" name="password" id="password" placeholder="Password">
+                    <input type="password" name="password" id="password" placeholder="Password" required>
                     <span class="toggle-password">👁️</span>
                 </div>
 
                 <label for="confirm-password">CONFIRM PASSWORD</label>
                 <div class="password-field">
-                    <input type="password" name="confirmPassword" id="confirm-password" placeholder="Confirm Password">
+                    <input type="password" name="confirmPassword" id="confirm-password" placeholder="Confirm Password" required>
                     <span class="toggle-password">👁️</span>
                     <span style="color: red;"> <%= request.getAttribute("errorMesPassword")!=null ? request.getAttribute("errorMesPassword") : "" %> </span>
                 </div>
