@@ -60,7 +60,7 @@ public class HomeServlet extends HttpServlet {
                 break;
                 
             case "booking":
-                request.getRequestDispatcher("/WEB-INF/views/booking/.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/views/booking/booking-room.jsp").forward(request, response);
                 break;
             default:
                 throw new AssertionError();
