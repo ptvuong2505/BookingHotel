@@ -4,8 +4,7 @@ package controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-import dao.CustomerDAO;
-import dao.UserDAO;
+import dao.*;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
@@ -18,8 +17,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import model.Customer;
-import model.User;
+import java.util.List;
+import model.*;
 
 /**
  *
@@ -101,13 +100,16 @@ public class LoginServlet extends HttpServlet {
             }else{
                 // for admin
             }
-            url = "index.jsp";
+            response.sendRedirect(request.getContextPath() + "/home");
+           
+            //url = "index.jsp";
         }else{
             request.setAttribute("username", username);
             request.setAttribute("errorMes", "Username or Password not correct!");
             url = "login.jsp";
+            request.getRequestDispatcher("/WEB-INF/views/auth/login.jsp").forward(request, response);
         }
-         request.getRequestDispatcher(url).forward(request, response);
+        return;
     }
 
     /**

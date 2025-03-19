@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 public class Hotel {
@@ -11,17 +7,19 @@ public class Hotel {
     private String phone;
     private String email;
     private String description;
+    private String image; // Thêm thuộc tính image
 
     public Hotel() {
     }
 
-    public Hotel(int hotelID, String name, String address, String phone, String email, String description) {
+    public Hotel(int hotelID, String name, String address, String phone, String email, String description, String image) {
         this.hotelID = hotelID;
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.email = email;
         this.description = description;
+        this.image = image;
     }
 
     public int getHotelID() {
@@ -72,6 +70,14 @@ public class Hotel {
         this.description = description;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "Hotel{" +
@@ -81,6 +87,7 @@ public class Hotel {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", description='" + description + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 }

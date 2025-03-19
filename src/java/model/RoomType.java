@@ -9,15 +9,26 @@ public class RoomType {
     private String typeName;
     private String description;
     private int capacity;
+    private String image;
 
     public RoomType() {}
 
-    public RoomType(int roomTypeID, String typeName, String description, int capacity) {
+    public RoomType(int roomTypeID, String typeName, String description, int capacity,String image) {
         this.roomTypeID = roomTypeID;
         this.typeName = typeName;
         this.description = description;
         this.capacity = capacity;
+        this.image=image;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
 
     public int getRoomTypeID() {
         return roomTypeID;

@@ -32,7 +32,7 @@
     </head>
     <script>
         setTimeout(function () {
-            window.location.href = "index.jsp";
+            window.location.href = "/WEB-INF/views/home/home.jsp";
         }, 5000);
     </script>
     <body>
@@ -40,7 +40,7 @@
             <h3><i class="fa fa-check-circle fa-3x text-success"></i></h3>
             <h2 class="my-3">Password Changed Successfully</h2>
             <p>Your password has been updated. You can now log in with your new password.</p>
-            <a href="login.jsp" class="btn btn-primary w-100 btn-home">
+            <a href="home?action=login" class="btn btn-primary w-100 btn-home">
                 <i class="fas fa-sign-in-alt"></i> Go to Login
             </a>
         </div>

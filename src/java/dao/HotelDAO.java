@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
 import model.Hotel;
@@ -9,11 +5,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import model.DatabaseInfo;
+import database.*;
 
 public class HotelDAO implements BaseDAO<Hotel> {
 
     private Connection getConnection() {
-        return DatabaseInfo.getConnect();
+        return DBConnection.getConnect();
     }
 
     @Override
@@ -30,7 +27,8 @@ public class HotelDAO implements BaseDAO<Hotel> {
                     rs.getString("Address"),
                     rs.getString("Phone"),
                     rs.getString("Email"),
-                    rs.getString("Description")
+                    rs.getString("Description"),
+                    rs.getString("Image")
                 ));
             }
         } catch (SQLException e) {
@@ -53,7 +51,8 @@ public class HotelDAO implements BaseDAO<Hotel> {
                         rs.getString("Address"),
                         rs.getString("Phone"),
                         rs.getString("Email"),
-                        rs.getString("Description")
+                        rs.getString("Description"),
+                        rs.getString("Image")
                     );
                 }
             }
@@ -65,7 +64,7 @@ public class HotelDAO implements BaseDAO<Hotel> {
 
     @Override
     public boolean insert(Hotel hotel) {
-        String query = "INSERT INTO Hotel (Name, Address, Phone, Email, Description) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Hotel (Name, Address, Phone, Email, Description, Image) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, hotel.getName());
@@ -73,6 +72,7 @@ public class HotelDAO implements BaseDAO<Hotel> {
             pstmt.setString(3, hotel.getPhone());
             pstmt.setString(4, hotel.getEmail());
             pstmt.setString(5, hotel.getDescription());
+            pstmt.setString(6, hotel.getImage());
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -82,7 +82,7 @@ public class HotelDAO implements BaseDAO<Hotel> {
 
     @Override
     public boolean update(Hotel hotel) {
-        String query = "UPDATE Hotel SET Name = ?, Address = ?, Phone = ?, Email = ?, Description = ? WHERE HotelID = ?";
+        String query = "UPDATE Hotel SET Name = ?, Address = ?, Phone = ?, Email = ?, Description = ?, Image = ? WHERE HotelID = ?";
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, hotel.getName());
@@ -90,7 +90,8 @@ public class HotelDAO implements BaseDAO<Hotel> {
             pstmt.setString(3, hotel.getPhone());
             pstmt.setString(4, hotel.getEmail());
             pstmt.setString(5, hotel.getDescription());
-            pstmt.setInt(6, hotel.getHotelID());
+            pstmt.setString(6, hotel.getImage());
+            pstmt.setInt(7, hotel.getHotelID());
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();

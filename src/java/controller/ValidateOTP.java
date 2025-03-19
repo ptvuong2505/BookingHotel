@@ -77,21 +77,21 @@ public class ValidateOTP extends HttpServlet {
         Long otpGeneratedTime = (Long) request.getSession().getAttribute("otpGeneratedTime");
         if (otpGeneratedTime == null || (System.currentTimeMillis() - otpGeneratedTime) > 60 * 1000) {
             request.setAttribute("message", "OTP has expired. Please request a new one.");
-            request.getRequestDispatcher("enterOTP.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/auth/otp-verification.jsp").forward(request, response);
             return;
         }
 
         if (otp == null || enteredOTP == null || otp.isEmpty() || enteredOTP.isEmpty()) {
             request.setAttribute("message", "null enteredOTP");
-            request.getRequestDispatcher("enterOTP.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/auth/otp-verification.jsp").forward(request, response);
             return;
         }
 
         if (otp.equalsIgnoreCase(enteredOTP)) {
-            response.sendRedirect("changePass.jsp");
+            request.getRequestDispatcher("/WEB-INF/views/auth/reset-password.jsp").forward(request, response);
         } else {
             request.setAttribute("message", "Wrong OTP code!");
-            request.getRequestDispatcher("enterOTP.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/auth/otp-verification.jsp").forward(request, response);
         }
     }
 

@@ -39,7 +39,7 @@
                 <button id="send-otp-btn" type="submit" class="btn btn-primary w-100">Send OTP</button>
             </form>
             <div class="mt-3">
-                <button class="btn btn-danger w-100" onclick="window.location.href = 'index.jsp'">Back to Home</button>
+                <button class="btn btn-danger w-100" onclick="window.location.href = 'home'">Back to Home</button>
             </div>
         </div>
         <script>

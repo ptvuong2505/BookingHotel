@@ -57,7 +57,7 @@
         window.onload = function () {
             let lastOTPSentTime = <%= session.getAttribute("otpGeneratedTime") %>;
             if (!lastOTPSentTime) {
-                window.location.href = "forgotPassword.jsp";
+                window.location.href = "/WEB-INF/views/auth/forgot-password.jsp";
                 return;
             }
 

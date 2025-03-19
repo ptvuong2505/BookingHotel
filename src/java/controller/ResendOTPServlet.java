@@ -1,3 +1,5 @@
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
@@ -108,7 +110,7 @@ public class ResendOTPServlet extends HttpServlet {
             } catch (MessagingException e) {
                 e.printStackTrace();
                 request.setAttribute("errorMessage", "Failed to send OTP. Please try again.");
-                dispatcher = request.getRequestDispatcher("forgotPassword.jsp");
+                dispatcher = request.getRequestDispatcher("/WEB-INF/views/auth/forgot-password.jsp");
                 dispatcher.forward(request, response);
                 return;
             }
@@ -118,14 +120,14 @@ public class ResendOTPServlet extends HttpServlet {
             session.setAttribute("email", email);
             request.setAttribute("message", "OTP has been sent to your email address");
 
-            response.sendRedirect("enterOTP.jsp");
+            response.sendRedirect("/WEB-INF/views/auth/otp-verification.jsp");
 
 //            dispatcher = request.getRequestDispatcher("enterOTP.jsp");
 //            dispatcher.forward(request, response);
         } else {
             request.setAttribute("errorMessage", "Invalid email address. Please try again.");
 
-            dispatcher = request.getRequestDispatcher("forgotPassword.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/views/auth/forgot-password.jsp");
             dispatcher.forward(request, response);
         }
     }

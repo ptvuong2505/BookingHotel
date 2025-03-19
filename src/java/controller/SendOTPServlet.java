@@ -90,7 +90,7 @@ public class SendOTPServlet extends HttpServlet {
         RequestDispatcher dispatcher = null;
         HttpSession session = request.getSession();
         if(session.getAttribute("otp")!=null){
-            request.getRequestDispatcher("enterOTP.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/auth/otp-verification.jsp").forward(request, response);
             return;
         }
         String email = request.getParameter("email");
@@ -127,7 +127,7 @@ public class SendOTPServlet extends HttpServlet {
             } catch (MessagingException e) {
                 e.printStackTrace();
                 request.setAttribute("errorMessage", "Failed to send OTP. Please try again.");
-                dispatcher = request.getRequestDispatcher("forgotPassword.jsp");
+                dispatcher = request.getRequestDispatcher("/WEB-INF/views/auth/forgot-password.jsp");
                 dispatcher.forward(request, response);
                 return;
             }
@@ -137,11 +137,11 @@ public class SendOTPServlet extends HttpServlet {
             session.setAttribute("email", email);
             request.setAttribute("message", "OTP has been sent to your email address");
             
-            dispatcher = request.getRequestDispatcher("enterOTP.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/views/auth/otp-verification.jsp");
             dispatcher.forward(request, response);
         } else {
             request.setAttribute("message", "Invalid email address. Please try again.");
-            dispatcher = request.getRequestDispatcher("forgotPassword.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/views/auth/forgot-password.jsp");
             dispatcher.forward(request, response);
         }
     }

@@ -96,13 +96,13 @@ public class RegisterServlet extends HttpServlet {
             if (UserDAO.isExistedUsername(username)) {
             errorMesUsername += "Username is existed!";
             request.setAttribute("errorMesUsername", errorMesUsername);
-            request.getRequestDispatcher("register.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/auth/register.jsp").forward(request, response);
             return;
             }
         }else{
             errorMesUsername += "Username containing at least 6 alphanumeric characters !";
             request.setAttribute("errorMesUsername", errorMesUsername);
-            request.getRequestDispatcher("register.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/auth/register.jsp").forward(request, response);
             return;
         }
         
@@ -110,7 +110,7 @@ public class RegisterServlet extends HttpServlet {
         if(CustomerDAO.checkExistedEmail(email)){
             errorMesEmail+="Email has been used";
             request.setAttribute("errorMesEmail", errorMesEmail);
-            request.getRequestDispatcher("register.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/auth/register.jsp").forward(request, response);
             return;
         }
 
@@ -118,7 +118,7 @@ public class RegisterServlet extends HttpServlet {
         if (!password.equals(confirmPassword)) {
             errorMesPassword += "Password comfirm is incorrect!";
             request.setAttribute("errorMesPassword", errorMesPassword);
-            request.getRequestDispatcher("register.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/auth/register.jsp").forward(request, response);
             return;
         }
         if (errorMesUsername.isEmpty() && errorMesPassword.isEmpty()) {
@@ -135,7 +135,7 @@ public class RegisterServlet extends HttpServlet {
             customer.setPhone(phone);
             customer.setAddress(address);
             new CustomerDAO().insert(customer);
-            request.getRequestDispatcher("registerSuccess.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/auth/success.jsp").forward(request, response);
         }
 
     }

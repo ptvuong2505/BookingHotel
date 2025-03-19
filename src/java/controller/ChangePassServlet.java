@@ -77,16 +77,16 @@ public class ChangePassServlet extends HttpServlet {
         String email = (String) session.getAttribute("email");
         String pass = (String) request.getParameter("password");
         if (email == null || pass == null) {
-            response.sendRedirect("forgotPassword.jsp");
+            request.getRequestDispatcher("/WEB-INF/views/auth/forgot-password.jsp").forward(request, response);
             return;
         }
         if (UserDAO.updatePassByEmail(pass, email)) {
             session.removeAttribute("otp");
             session.removeAttribute("otpGeneratedTime");
-            response.sendRedirect("changePassSuccess.jsp");
+            request.getRequestDispatcher("/WEB-INF/views/auth/success.jsp").forward(request, response);
         }else{
             request.setAttribute("message", "Can not change password. Please do it again..");
-            request.getRequestDispatcher("enterOTP.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/auth/otp-verification.jsp").forward(request, response);
         }
     }
 

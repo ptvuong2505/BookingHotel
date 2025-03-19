@@ -48,13 +48,13 @@
             <input type="checkbox" id="remember" name="remember">
             <label for="remember">Remember me 🔒</label>
         </div>
-        <a href="forgotPassword.jsp">Forgot password? 🧑‍💻</a>
+        <a href="home?action=forgot-password">Forgot password? 🧑‍💻</a>
     </div>
     <button class="login-btn">Log In</button>
 
     <div class="bottom-links">
-        <a href="register.jsp">Create a new account ✍️️</a>
-        <a href="index.jsp">Back to Home 🏠</a>
+        <a href="home?action=register">Create a new account ✍️️</a>
+        <a href="home">Back to Home 🏠</a>
     </div>
 </form>
 </body>
