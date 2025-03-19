@@ -58,6 +58,10 @@ public class HomeServlet extends HttpServlet {
             case "forgot-password":
                 request.getRequestDispatcher("/WEB-INF/views/auth/forgot-password.jsp").forward(request, response);
                 break;
+                
+            case "booking":
+                request.getRequestDispatcher("/WEB-INF/views/booking/.jsp").forward(request, response);
+                break;
             default:
                 throw new AssertionError();
         }
