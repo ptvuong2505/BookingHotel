@@ -3,7 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/web/WEB-INF/views/auth/otp-verification.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/SendOTPServlet.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/ResendOTPServlet.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/ValidateOTP.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/database/DBConnection.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/database/DatabaseInfor.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/LoginServlet.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/register.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/RegisterServlet.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/HomeServlet.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/ChangePassServlet.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/common/navbar.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -1,0 +1,12 @@
+build/
+dist/
+nbproject/private/
+*.log
+*.class
+*.war
+*.jar
+*.iml
+target/
+.settings/
+.vscode/
+.idea/
