@@ -78,30 +78,34 @@
         let checkInDate = document.getElementById("checkInDate");
         let checkOutDate = document.getElementById("checkOutDate");
 
-        // Đặt giá trị min mặc định
-        checkInDate.setAttribute("min", today);
-        checkInDate.value = today; // Mặc định chọn hôm nay
-
-        // Đặt giá trị min cho ngày trả phòng (ngày sau hôm nay)
-        let tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        let minCheckOut = tomorrow.toISOString().split('T')[0];
-
-        checkOutDate.setAttribute("min", minCheckOut);
-        checkOutDate.value = minCheckOut; // Mặc định chọn ngày mai
-
-        // Khi chọn ngày nhận phòng, cập nhật min cho ngày trả phòng
-        checkInDate.addEventListener("change", function() {
+        function updateCheckOutMin() {
             let selectedCheckIn = new Date(checkInDate.value);
             let nextDay = new Date(selectedCheckIn);
             nextDay.setDate(nextDay.getDate() + 1);
             let minCheckoutDate = nextDay.toISOString().split('T')[0];
 
             checkOutDate.setAttribute("min", minCheckoutDate);
-            checkOutDate.value = minCheckoutDate; // Reset về ngày tiếp theo
+            if (checkOutDate.value < minCheckoutDate) {
+                checkOutDate.value = minCheckoutDate; // Đặt lại giá trị nếu bị vi phạm
+            }
+        }
+
+        // Đặt giá trị min cho ngày nhận phòng
+        checkInDate.setAttribute("min", today);
+        checkInDate.value = today; // Mặc định chọn hôm nay
+
+        updateCheckOutMin(); // Cập nhật ngày trả phòng
+
+        // Khi thay đổi ngày nhận phòng
+        checkInDate.addEventListener("change", function() {
+            if (checkInDate.value < today) {
+                checkInDate.value = today; // Không cho phép chọn ngày quá khứ
+            }
+            updateCheckOutMin(); // Cập nhật lại ngày trả phòng
         });
     });
 </script>
+
 
 
 
