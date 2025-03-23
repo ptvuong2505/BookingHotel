@@ -34,15 +34,15 @@ public class HomeServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action=request.getParameter("action");
-        HttpSession session=request.getSession();
-        
-        RoomTypeDAO roomTypeDAO=new RoomTypeDAO();
-        HotelDAO hotelDAO=new HotelDAO();
-        
+        String action = request.getParameter("action");
+        HttpSession session = request.getSession();
+
+        RoomTypeDAO roomTypeDAO = new RoomTypeDAO();
+        HotelDAO hotelDAO = new HotelDAO();
+
         session.setAttribute("hotels", hotelDAO.getAll());
         session.setAttribute("roomTypes", roomTypeDAO.getAll());
-        if (action==null){
+        if (action == null) {
             request.getRequestDispatcher("/WEB-INF/views/home/home.jsp").forward(request, response);
         }
         switch (action) {
@@ -58,9 +58,12 @@ public class HomeServlet extends HttpServlet {
             case "forgot-password":
                 request.getRequestDispatcher("/WEB-INF/views/auth/forgot-password.jsp").forward(request, response);
                 break;
-                
+
             case "booking":
-                request.getRequestDispatcher("/WEB-INF/views/booking/booking-room.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/views/booking/bookingRoom.jsp").forward(request, response);
+                break;
+            case "bookingService":
+                request.getRequestDispatcher("/WEB-INF/views/booking/bookingService.jsp").forward(request, response);
                 break;
             default:
                 throw new AssertionError();

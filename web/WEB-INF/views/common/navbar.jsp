@@ -23,10 +23,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#">Dine And Drink</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Breakfast</a></li>
-                                <li><a href="#">Lunch</a></li>
-                                <li><a href="#">Dining</a></li>
-                                <li><a href="#">Water</a></li>
+                                <li><a href="home?action=bookingService">Breakfast</a></li>
+                                <li><a href="home?action=bookingService">Lunch</a></li>
+                                <li><a href="home?action=bookingService">Dining</a></li>
+                                <li><a href="home?action=bookingService">Water</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
