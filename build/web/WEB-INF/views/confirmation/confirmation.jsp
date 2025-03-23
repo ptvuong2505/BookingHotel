@@ -10,210 +10,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/confirmation.css">
         <style>
-            :root {
-                --primary-color: #c4933f;
-                --secondary-color: #9c793d;
-                --dark-bg: #333333;
-                --card-bg: #111111;
-                --text-color: #e0e0e0;
-                --border-color: #c4933f;
-            }
-
-            body, html {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                color: var(--text-color);
-                background-color: var(--dark-bg);
-            }
-
-            body {
-                position: relative;
-                background-image: url('${pageContext.request.contextPath}/images/QuangDaLogo.jpg');
+            #background-container {
+                background-image: url('<%= request.getContextPath()%>/images/QuangDaLogo.jpg');
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
-                background-attachment: fixed;
-            }
-
-            body::before {
-                content: "";
                 position: fixed;
                 top: 0;
                 left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.75);
+                width: 100vw;
+                height: 100vh;
                 z-index: -1;
-            }
-
-            .container-box {
-                max-width: 800px;
-                margin: 20px auto;
-                padding: 0;
-                border-radius: 10px;
-                background-color: var(--dark-bg);
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-                overflow: hidden;
-                border: 1px solid var(--border-color);
-            }
-
-            .header {
-                background-color: var(--card-bg);
-                padding: 20px;
-                text-align: center;
-                border-bottom: 2px solid var(--border-color);
-            }
-
-            .header h2 {
-                color: var(--primary-color);
-                margin: 0;
-                font-size: 28px;
-                font-weight: bold;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            .card {
-                background-color: var(--card-bg);
-                border: 1px solid var(--border-color);
-                border-radius: 8px;
-                margin-bottom: 20px;
-                overflow: hidden;
-            }
-
-            .card-header {
-                background-color: var(--card-bg);
-                color: var(--primary-color);
-                text-align: center;
-                padding: 15px;
-                font-weight: bold;
-                border-bottom: 1px solid var(--border-color);
-            }
-
-            .card-body {
-                padding: 15px;
-            }
-
-            label {
-                color: var(--text-color);
-                margin-bottom: 5px;
-                display: block;
-            }
-
-            .form-control, .form-select {
-                background-color: #444;
-                border: 1px solid #555;
-                color: white;
-                padding: 10px;
-                border-radius: 5px;
-            }
-
-            .form-control:focus {
-                background-color: #444;
-                border-color: var(--primary-color);
-                color: white;
-                box-shadow: 0 0 0 0.25rem rgba(196, 147, 63, 0.25);
-            }
-
-            .date-inputs {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 15px;
-                margin-bottom: 20px;
-            }
-
-            input[type="date"] {
-                color-scheme: dark;
-            }
-
-            .form-check {
-                margin-bottom: 10px;
-                display: flex;
-                align-items: center;
-            }
-
-            .form-check-input {
-                margin-right: 10px;
-                width: 18px;
-                height: 18px;
-            }
-
-            .form-check-input:checked {
-                background-color: var(--primary-color);
-                border-color: var(--primary-color);
-            }
-
-            .form-check-label {
-                color: var(--text-color);
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-            }
-
-            .price {
-                color: var(--primary-color);
-                font-weight: bold;
-            }
-
-            .btn-primary {
-                background-color: var(--primary-color);
-                border-color: var(--primary-color);
-                color: #333;
-                font-weight: bold;
-                padding: 12px 20px;
-                transition: all 0.3s;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 10px;
-            }
-
-            .btn-primary:hover {
-                background-color: var(--secondary-color);
-                border-color: var(--secondary-color);
-                transform: translateY(-2px);
-            }
-
-            .info-row {
-                display: flex;
-                margin-bottom: 10px;
-                border-bottom: 1px solid #444;
-                padding-bottom: 8px;
-            }
-
-            .info-row:last-child {
-                border-bottom: none;
-            }
-
-            .info-label {
-                font-weight: bold;
-                min-width: 120px;
-                color: var(--primary-color);
-            }
-
-            .error-message {
-                color: #ff6b6b;
-                background-color: rgba(255, 107, 107, 0.1);
-                border: 1px solid #ff6b6b;
-                padding: 10px;
-                border-radius: 5px;
-                margin-top: 10px;
-                display: none;
-            }
-
-            @media (max-width: 768px) {
-                .date-inputs {
-                    grid-template-columns: 1fr;
-                }
-
-                .container-box {
-                    margin: 10px;
-                }
             }
         </style>
 
@@ -423,9 +232,7 @@
                     <input type="hidden" name="price" value="<%= price%>">
 
                     <div class="d-grid mt-4">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-check-circle"></i> Confirm Booking
-                        </button>
+                        <a href="home?action=payment" type="submit" class="btn btn-primary" >Confirm Booking</a>
                     </div>
                 </form>
             </div>

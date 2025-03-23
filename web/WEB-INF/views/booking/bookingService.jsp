@@ -29,22 +29,22 @@
                 <!-- Menu -->
                 <div class="header-service" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="bookingVehicle.jsp">Offers</a>
+                            <a class="nav-link" href="home?action=bookingVehicle">Offers</a>
                             <ul class="dropdown-menu">
-                                <li><a href="bookingVehicle.jsp">Motorbike Rental</a></li>
-                                <li><a href="bookingVehicle.jsp">Car Rental</a></li>
-                                <li><a href="bookingVehicle.jsp">Golf Trip</a></li>
+                                <li><a href="home?action=bookingVehicle">Motorbike Rental</a></li>
+                                <li><a href="home?action=bookingVehicle">Car Rental</a></li>
+                                <li><a href="home?action=bookingVehicle">Golf Trip</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="bookingService.jsp">Dine And Drink</a>
+                            <a class="nav-link" href="home?action=bookingService">Dine And Drink</a>
                             <ul class="dropdown-menu">
-                                <li><a href="bookingService.jsp">Breakfast</a></li>
-                                <li><a href="bookingService.jsp">Lunch</a></li>
-                                <li><a href="bookingService.jsp">Dining</a></li>
-                                <li><a href="bookingService.jsp">Water</a></li>
+                                <li><a href="home?action=bookingService">Breakfast</a></li>
+                                <li><a href="home?action=bookingService">Lunch</a></li>
+                                <li><a href="home?action=bookingService">Dining</a></li>
+                                <li><a href="home?action=bookingService">Water</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -61,14 +61,14 @@
                     if (customer == null) {
                 %>
                 <div class="header-login d-flex">
-                    <a href="login.jsp" class="btn-custom me-2">Login</a>
-                    <a href="register.jsp" class="btn-custom me-2">Register</a>
-                    <a href="bookingRoom.jsp" class="btn-custom btn-primary-custom">Booking now</a>
+                    <a href="home?action=login" class="btn-custom me-2">Login</a>
+                    <a href="home?action=register" class="btn-custom me-2">Register</a>
+                    <a href="home?action=booking" class="btn-custom btn-primary-custom">Booking now</a>
                 </div>
                 <% } else {%>
-                <!-- Nếu đã đăng nhập -->
-                   <div class="header-login d-flex align-items-center">
+                <div class="header-login d-flex align-items-center">
                     <span class="me-3" style="color: #FF9900">Xin chào, <strong><%= customer.getName()%></strong></span>
+                    <a href="home?action=booking" class="btn-custom btn-primary-custom me-2">Booking now</a>
                     <a href="LogoutServlet" class="btn-custom me-2">Logout</a>
                 </div>
                 <% }%>
@@ -114,7 +114,7 @@
                                         <textarea id="meal-note" class="form-control mb-3" rows="2" placeholder="Enter any special requests..."></textarea>
 
                                         <div class="price-note">Per Person (Excluding taxes and fees)</div>
-                                        <button class="book-now-button">BOOK NOW</button>
+                                        <a href="home?action=confirmation" class="book-now-button">Booking now</a>
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +163,7 @@
                                         <textarea id="drink-note" class="form-control mb-3" rows="2" placeholder="Enter any special requests..."></textarea>
 
                                         <div class="price-note">Per Drink (Excluding taxes and fees)</div>
-                                        <button class="book-now-button">BOOK NOW</button>
+                                        <a href="home?action=confirmation" class="book-now-button">Booking now</a>
                                     </div>
                                 </div>
                             </div>
