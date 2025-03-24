@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="model.Room"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="model.Customer" %>
 
@@ -24,11 +26,9 @@
                 <!-- Lấy thông tin khách hàng từ Session -->
                 <%
                     Customer customer = (Customer) session.getAttribute("customer");
-                    if (customer == null) {
-                        response.sendRedirect("login.jsp");
-                        return;
-                    }
-
+                    
+                    Room room=(Room) session.getAttribute("room");
+                    
                     // Lấy thông tin từ request (được gửi từ confirmation.jsp)
                     String roomType = request.getParameter("roomType");
                     String description = request.getParameter("description");
@@ -38,6 +38,11 @@
                     String checkOut = request.getParameter("checkOut");
                     String[] services = request.getParameterValues("services");
                     String[] offers = request.getParameterValues("offers");
+                    try {
+                            Date checkInDate=(Date) session.getAttribute("checkInDate");
+                            Date checkOutDate=(Date) session.getAttribute("CheckOutDate");
+                        } catch (Exception e) {
+                        }
                 %>
 
                 <!-- Hiển thị thông tin khách hàng -->
@@ -63,12 +68,12 @@
                 <div class="card mt-3">
                     <div class="card-header">Booking Information</div>
                     <div class="card-body">
-                        <div class="info-row"><div class="info-label">Room Type:</div><div><%= roomType %></div></div>
-                        <div class="info-row"><div class="info-label">Description:</div><div><%= description %></div></div>
-                        <div class="info-row"><div class="info-label">Capacity:</div><div><%= capacity %> People</div></div>
-                        <div class="info-row"><div class="info-label">Price:</div><div><%= price %> VND per night</div></div>
-                        <div class="info-row"><div class="info-label">Check-In:</div><div><%= checkIn %></div></div>
-                        <div class="info-row"><div class="info-label">Check-Out:</div><div><%= checkOut %></div></div>
+                        <div class="info-row"><div class="info-label">Room Type:</div><div>${room.getRoomType().typeName}</div></div>
+                        <div class="info-row"><div class="info-label">Description:</div><div>${room.getRoomType().description}</div></div>
+                        <div class="info-row"><div class="info-label">Capacity:</div><div>${room.getRoomType().capacity} People</div></div>
+                        <div class="info-row"><div class="info-label">Price:</div><div>${room.price} VND per night</div></div>
+                        <div class="info-row"><div class="info-label">Check-In:</div><div>${checkInDate}</div></div>
+                        <div class="info-row"><div class="info-label">Check-Out:</div><div>${checkOutDate}</div></div>
                     </div>
                 </div>
 

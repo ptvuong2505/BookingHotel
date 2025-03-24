@@ -44,7 +44,10 @@ public class BookingController extends HttpServlet {
         Room room = new Room(roomID, roomNumber, roomTypeID,hotelID, price, status);
         session.setAttribute("room", room);
         
-
+        if (session.getAttribute("customer")==null){
+                    request.getRequestDispatcher("home?action=booking").forward(request, response);
+                 
+                }
         // Chuyển hướng đến trang xác nhận đặt phòng
         request.getRequestDispatcher("/WEB-INF/views/confirmation/confirmation.jsp").forward(request, response);
     }

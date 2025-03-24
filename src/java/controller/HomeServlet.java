@@ -63,7 +63,11 @@ public class HomeServlet extends HttpServlet {
                 break;
 
             case "booking":
-                request.getRequestDispatcher("/WEB-INF/views/booking/roomList.jsp").forward(request, response);
+                if (session.getAttribute("customer")==null){
+                    request.getRequestDispatcher("/WEB-INF/views/auth/login.jsp").forward(request, response);
+                 break;
+                }
+                request.getRequestDispatcher("/WEB-INF/views/booking/bookingRoom.jsp").forward(request, response);
                 break;
             case "bookingService":
                 request.getRequestDispatcher("/WEB-INF/views/booking/bookingService.jsp").forward(request, response);
@@ -79,6 +83,20 @@ public class HomeServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/views/confirmation/confirmation.jsp").forward(request, response);
                 break;
             case "payment":
+                if (session.getAttribute("customer")==null){
+                    request.getRequestDispatcher("/WEB-INF/views/auth/login.jsp").forward(request, response);
+                    break;
+                }
+                String[] selectedServices = request.getParameterValues("services");
+
+                if (selectedServices != null) {
+                    for (String service : selectedServices) {
+                        System.out.println("Dịch vụ đã chọn: " + service);
+                    }
+                } else {
+                    System.out.println("Không có dịch vụ nào được chọn............................");
+                }
+
                 request.getRequestDispatcher("/WEB-INF/views/payment/payment.jsp").forward(request, response);
                 break;
             default:

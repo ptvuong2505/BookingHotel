@@ -4,6 +4,10 @@
                     </div>
                     <div class="card-body">
                         <div class="info-row">
+                            <div class="info-label">Hotel:</div>
+                            <div>${room.getHotel().name}</div>
+                        </div>
+                        <div class="info-row">
                             <div class="info-label">Room Type:</div>
                             <div>${room.getRoomType().typeName}</div>
                         </div>

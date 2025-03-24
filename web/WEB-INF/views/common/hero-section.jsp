@@ -72,40 +72,35 @@
 
 <!-- JavaScript để giới hạn ngày -->
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let today = new Date().toISOString().split('T')[0];
+    document.addEventListener("DOMContentLoaded", function () {
+        let checkInInput = document.getElementById("checkInDate");
+        let checkOutInput = document.getElementById("checkOutDate");
 
-        let checkInDate = document.getElementById("checkInDate");
-        let checkOutDate = document.getElementById("checkOutDate");
+        let today = new Date().toISOString().split("T")[0]; // Lấy ngày hôm nay (YYYY-MM-DD)
 
-        function updateCheckOutMin() {
-            let selectedCheckIn = new Date(checkInDate.value);
-            let nextDay = new Date(selectedCheckIn);
-            nextDay.setDate(nextDay.getDate() + 1);
-            let minCheckoutDate = nextDay.toISOString().split('T')[0];
-
-            checkOutDate.setAttribute("min", minCheckoutDate);
-            if (checkOutDate.value < minCheckoutDate) {
-                checkOutDate.value = minCheckoutDate; // Đặt lại giá trị nếu bị vi phạm
-            }
+        // Đặt giá trị mặc định nếu không có trong session
+        if (!checkInInput.value) {
+            checkInInput.value = today;
+        }
+        if (!checkOutInput.value) {
+            checkOutInput.value = checkInInput.value; // Check-out mặc định là ngày check-in
         }
 
-        // Đặt giá trị min cho ngày nhận phòng
-        checkInDate.setAttribute("min", today);
-        checkInDate.value = today; // Mặc định chọn hôm nay
+        // Giới hạn ngày nhỏ nhất có thể chọn
+        checkInInput.min = today;
+        checkOutInput.min = checkInInput.value;
 
-        updateCheckOutMin(); // Cập nhật ngày trả phòng
+        // Khi chọn ngày check-in, cập nhật ngày check-out tối thiểu
+        checkInInput.addEventListener("change", function () {
+            checkOutInput.min = checkInInput.value;
 
-        // Khi thay đổi ngày nhận phòng
-        checkInDate.addEventListener("change", function() {
-            if (checkInDate.value < today) {
-                checkInDate.value = today; // Không cho phép chọn ngày quá khứ
+            // Nếu ngày check-out nhỏ hơn ngày check-in, tự động cập nhật
+            if (checkOutInput.value < checkInInput.value) {
+                checkOutInput.value = checkInInput.value;
             }
-            updateCheckOutMin(); // Cập nhật lại ngày trả phòng
         });
     });
 </script>
-
 
 
 
