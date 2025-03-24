@@ -29,15 +29,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <form action="RoomController" method="POST">
-    <div class="row d-flex align-items-center">
+    <div class="row d-flex align-items-center" style="margin-top: 56px">
         <!-- Chọn khách sạn -->
         <div class="col-md-3">
-<<<<<<< HEAD
-            <select class="form-select" name="hotel" required>
-=======
             <select class="form-select" name="hotel" required >
->>>>>>> fb66841bc4acf4dd9b01995a2a5f3c5e0807a6ea
-
                 <c:choose>
                     <c:when test="${not empty hotelName}">
                         <option value="${hotelID}" selected>${hotelName}</option>

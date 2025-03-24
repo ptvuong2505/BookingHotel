@@ -46,7 +46,7 @@
                     double roomTotal=0;
                     try {
                             Date checkInDate = (Date) session.getAttribute("checkInDate");
-                            Date checkOutDate = (Date) session.getAttribute("CheckOutDate");
+                            Date checkOutDate = (Date) session.getAttribute("checkOutDate");
                             long millisPerDay = 24 * 60 * 60 * 1000; // Số mili-giây trong 1 ngày
                              // Mặc định là 1 đêm nếu có lỗi
 
