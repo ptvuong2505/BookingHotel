@@ -8,15 +8,15 @@ public class Service {
     private int serviceID;
     private String serviceName;
     private double price;
-    private int hotelID;
+    
 
     public Service() {}
 
-    public Service(int serviceID, String serviceName, double price, int hotelID) {
+    public Service(int serviceID, String serviceName, double price) {
         this.serviceID = serviceID;
         this.serviceName = serviceName;
         this.price = price;
-        this.hotelID = hotelID;
+        
     }
 
     public int getServiceID() {
@@ -43,13 +43,7 @@ public class Service {
         this.price = price;
     }
 
-    public int getHotelID() {
-        return hotelID;
-    }
-
-    public void setHotelID(int hotelID) {
-        this.hotelID = hotelID;
-    }
+    
 }
  
 

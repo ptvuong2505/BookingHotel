@@ -2,7 +2,7 @@ package dao;
 
 import database.DBConnection;
 import model.User;
-import model.DatabaseInfo;
+import database.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public class UserDAO implements BaseDAO<User> {
         List<User> users = new ArrayList<>();
         String sql = "SELECT * FROM Users";
 
-        try (Connection conn = DatabaseInfo.getConnect(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
+        try (Connection conn = DBConnection.getConnect(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 User user = new User(
@@ -69,7 +69,7 @@ public class UserDAO implements BaseDAO<User> {
     public User getById(int id) {
         String sql = "SELECT * FROM Users WHERE userID = ?";
 
-        try (Connection conn = DatabaseInfo.getConnect(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnect(); PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
@@ -134,7 +134,7 @@ public class UserDAO implements BaseDAO<User> {
     public boolean update(User user) {
         String sql = "UPDATE Users SET username = ?, password = ?, role = ? WHERE userID = ?";
 
-        try (Connection conn = DatabaseInfo.getConnect(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnect(); PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getPassword());
@@ -152,7 +152,7 @@ public class UserDAO implements BaseDAO<User> {
     public boolean delete(int id) {
         String sql = "DELETE FROM Users WHERE userID = ?";
 
-        try (Connection conn = DatabaseInfo.getConnect(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnect(); PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
             return stmt.executeUpdate() > 0;

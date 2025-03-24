@@ -1,0 +1,424 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 11, 2025, 2:39:00 PM
+    Author     : LENOVO
+*/
+body {
+    padding-top: 120px; /* Điều chỉnh giá trị này cho phù hợp */
+}
+
+.custom-navbar {
+    background-color: #33291D;
+    padding: 20px 0;
+}
+.logo {
+    width: 100px; /* Điều chỉnh kích thước logo */
+    height: auto;
+}
+.header-service .navbar-nav {
+    display: flex;
+    gap: 20px;
+    color: #ccc; /* Màu xám nhạt thay thế activeborder */
+}
+
+.navbar-nav .nav-link {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+
+    /* Gradient cho chữ */
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: all 0.3s ease-in-out;
+}
+.navbar-nav .nav-link:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/*  các tác vụ của Offers*/
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #FF9D0C;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    z-index: 1000;
+}
+
+/* Hiện menu khi hover vào Offers */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Dropdown Items */
+.dropdown-menu li {
+    padding: 8px 12px;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.dropdown-menu li:hover {
+    background: #FF9D0C;
+}
+/* Thiết lập chung cho nút */
+.btn-custom {
+    font-size: 14px;
+    padding: 10px 18px;
+    border-radius: 8px; /* Bo góc mềm mại */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    text-align: center;
+    color: #33291D;
+}
+
+/* Nút màu đỏ mặc định */
+.btn-custom {
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+    box-shadow: 0 4px 6px rgba(255, 152, 0, 0.3);
+}
+/* Hiệu ứng hover */
+.btn-custom:hover {
+    background: linear-gradient(135deg, #FFB74D, #FF9800);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 152, 0, 0.4);
+}
+/* Nút Đặt Phòng Ngay nổi bật */
+.btn-primary-custom {
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+    box-shadow: 0 4px 6px rgba(255, 152, 0, 0.3);
+}
+/* Hiệu ứng hover cho Đặt Phòng Ngay */
+.btn-primary-custom:hover {
+    background: linear-gradient(135deg, #FFB74D, #FF9800);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 152, 0, 0.4);
+}
+
+
+/*Booking*/
+
+.room-section {
+    font-family: Arial, sans-serif;
+    padding: 30px 0;
+    margin-bottom: 10px;
+}
+
+/* Card styling */
+.card {
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Fix row layout */
+.row.g-0 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Image section styling */
+.col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.col-md-4 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.col-md-4 ul {
+    width: 100%;
+    padding: 15px;
+    background-color: #f8f9fa;
+    margin-bottom: 0;
+}
+
+.col-md-4 li {
+    padding: 5px 0;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+/* Description section styling */
+.col-md-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-title {
+    color: #8B5E34;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.col-md-8 p {
+    margin-bottom: 10px;
+    color: #6c757d;
+}
+
+.col-md-8 p:nth-child(2) {
+    color: #6c757d;
+    font-size: 16px;
+}
+
+.border-top {
+    border-color: #dee2e6 !important;
+    margin-top: 20px;
+    padding-top: 15px;
+}
+
+.border-top p strong {
+    color: #8B5E34;
+    font-size: 18px;
+}
+
+.border-top ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+    list-style-type: disc;
+}
+
+.border-top ul li {
+    color: #6c757d;
+    margin-bottom: 8px;
+}
+
+.border-top ul li::marker {
+    color: #8B5E34;
+}
+
+/* Price and button styling */
+.border-top p:last-of-type {
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.border-top p:last-of-type strong {
+    color: #8B5E34;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #8B5E34 !important;
+    border: none !important;
+    padding: 10px 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 0;
+}
+
+.btn-primary:hover {
+    background-color: #7a502b !important;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .col-md-4, .col-md-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .col-md-4 img {
+        height: 250px;
+        width: 100%;
+    }
+}
+
+/* Additional styling for layout from reference */
+.studio-room-card {
+    margin-bottom: 30px;
+}
+
+/* Horizontal line styling */
+hr {
+    margin: 20px 0;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Fix for Studio Room Card text */
+.studio-room-card-text {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Fix for Online Exclusives styling */
+.online-exclusives {
+    margin-top: 20px;
+}
+
+.online-exclusives h5 {
+    color: #8B5E34;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Fix for pricing */
+.price {
+    color: #8B5E34;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.price-note {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Book now button styling */
+.book-now-button {
+    background-color: #8B5E34;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.book-now-button:hover {
+    background-color: #76502d;
+}
+
+/* Đảm bảo không áp dụng các kiểu bootstrap mặc định */
+.book-now-button:focus,
+.book-now-button:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background-color: #8B5E34 !important;
+    color: #FFFF
+}
+
+
+/* Tạo khoảng cách giữa header và khung đầu tiên */
+.room-section {
+    margin-top: 10px; /* Tạo khoảng cách với phần header */
+    margin-bottom: 10px; /* Khoảng cách giữa các khung */
+}
+
+
+/*footer*/
+
+footer {
+    background-color: #9C7A50;
+    padding: 40px 20px;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-column {
+    flex: 1;
+    margin: 20px;
+    min-width: 200px;
+}
+
+.footer-column h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.footer-column img{
+    max-width: 150px;
+    margin: 10px;
+}
+
+.footer-column :hover {
+    text-decoration: underline;
+}
+
+.social-icons p {
+    margin-right: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 12px;
+    color: white;
+}
+
+.logo-section {
+    display: flex;
+    justify-content: space-around; /* Cách đều các mục */
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: nowrap; /* Giữ nguyên hàng ngang */
+    padding: 20px 0;
+}
+
+/* Căn chỉnh văn bản của từng mục */
+.logo-section div {
+    text-align: center;
+    font-family: 'Georgia', serif; /* Font sang trọng như trong ảnh */
+    color: white;
+    line-height: 1.4;
+    font-size: 14px;
+    margin: 0 20px; /* Tạo khoảng cách giữa các mục */
+}
+
+/* Tăng kích thước font của dòng đầu tiên */
+.logo-section div span:first-child {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}

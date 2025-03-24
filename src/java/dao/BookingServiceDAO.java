@@ -1,7 +1,7 @@
 package dao;
 
 import model.BookingService;
-import model.DatabaseInfo;
+import database.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class BookingServiceDAO implements BaseDAO<BookingService> {
         List<BookingService> bookingServices = new ArrayList<>();
         String sql = "SELECT * FROM BookingService";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
@@ -39,7 +39,7 @@ public class BookingServiceDAO implements BaseDAO<BookingService> {
         List<BookingService> services = new ArrayList<>();
         String sql = "SELECT * FROM BookingService WHERE bookingID = ?";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, bookingID);
@@ -61,7 +61,7 @@ public class BookingServiceDAO implements BaseDAO<BookingService> {
     public boolean insert(BookingService bookingService) {
         String sql = "INSERT INTO BookingService (bookingID, serviceID) VALUES (?, ?)";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setInt(1, bookingService.getBookingID());
@@ -83,7 +83,7 @@ public class BookingServiceDAO implements BaseDAO<BookingService> {
     public boolean delete(int bookingID) {
         String sql = "DELETE FROM BookingService WHERE bookingID = ?";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setInt(1, bookingID);

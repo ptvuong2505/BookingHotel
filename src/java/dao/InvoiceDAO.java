@@ -1,7 +1,7 @@
 package dao;
 
 import model.Invoice;
-import model.DatabaseInfo;
+import database.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class InvoiceDAO implements BaseDAO<Invoice> {
         List<Invoice> invoices = new ArrayList<>();
         String sql = "SELECT * FROM Invoice";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
@@ -39,7 +39,7 @@ public class InvoiceDAO implements BaseDAO<Invoice> {
     public Invoice getById(int id) {
         String sql = "SELECT * FROM Invoice WHERE invoiceID = ?";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
@@ -66,7 +66,7 @@ public class InvoiceDAO implements BaseDAO<Invoice> {
     public boolean insert(Invoice invoice) {
         String sql = "INSERT INTO Invoice (bookingID, totalAmount, paymentMethod, paymentStatus, paymentDate, transactionID) VALUES (?, ?, ?, ?, ?, ?)";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setInt(1, invoice.getBookingID());
@@ -87,7 +87,7 @@ public class InvoiceDAO implements BaseDAO<Invoice> {
     public boolean update(Invoice invoice) {
         String sql = "UPDATE Invoice SET bookingID = ?, totalAmount = ?, paymentMethod = ?, paymentStatus = ?, paymentDate = ?, transactionID = ? WHERE invoiceID = ?";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setInt(1, invoice.getBookingID());
@@ -109,7 +109,7 @@ public class InvoiceDAO implements BaseDAO<Invoice> {
     public boolean delete(int id) {
         String sql = "DELETE FROM Invoice WHERE invoiceID = ?";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setInt(1, id);

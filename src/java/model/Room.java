@@ -4,6 +4,9 @@
  */
 package model;
 
+import dao.HotelDAO;
+import dao.RoomTypeDAO;
+
 public class Room {
     private int roomID;
     private String roomNumber;
@@ -16,6 +19,13 @@ public class Room {
 
     public Room(int roomID, String roomNumber, int roomTypeID, int hotelID, double price, String status) {
         this.roomID = roomID;
+        this.roomNumber = roomNumber;
+        this.roomTypeID = roomTypeID;
+        this.hotelID = hotelID;
+        this.price = price;
+        this.status = status;
+    }
+    public Room( String roomNumber, int roomTypeID, int hotelID, double price, String status) {
         this.roomNumber = roomNumber;
         this.roomTypeID = roomTypeID;
         this.hotelID = hotelID;
@@ -70,5 +80,20 @@ public class Room {
     public void setStatus(String status) {
         this.status = status;
     }
+    
+    public String getTypeName(){
+        RoomTypeDAO roomTypeDAO=new RoomTypeDAO();
+        return roomTypeDAO.getById(this.roomTypeID).getTypeName();
+    }
+    
+    public  Hotel getHotel(){
+        HotelDAO hotelDAO=new HotelDAO();
+        return hotelDAO.getById(this.hotelID);
+    }
+    
+    public RoomType getRoomType(){
+        RoomTypeDAO dao=new RoomTypeDAO();
+        return dao.getById(this.roomTypeID);
+    }
+      
 }
-

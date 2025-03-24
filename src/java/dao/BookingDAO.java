@@ -1,7 +1,7 @@
 package dao;
 
 import model.Booking;
-import model.DatabaseInfo;
+import database.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class BookingDAO implements BaseDAO<Booking> {
         List<Booking> bookings = new ArrayList<>();
         String sql = "SELECT * FROM Booking";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
@@ -40,7 +40,7 @@ public class BookingDAO implements BaseDAO<Booking> {
     public Booking getById(int id) {
         String sql = "SELECT * FROM Booking WHERE bookingID = ?";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
@@ -68,7 +68,7 @@ public class BookingDAO implements BaseDAO<Booking> {
     public boolean insert(Booking booking) {
         String sql = "INSERT INTO Booking (customerID, roomID, hotelID, checkInDate, checkOutDate, totalPrice, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, booking.getCustomerID());
@@ -90,7 +90,7 @@ public class BookingDAO implements BaseDAO<Booking> {
     public boolean update(Booking booking) {
         String sql = "UPDATE Booking SET customerID=?, roomID=?, hotelID=?, checkInDate=?, checkOutDate=?, totalPrice=?, status=? WHERE bookingID=?";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, booking.getCustomerID());
@@ -113,7 +113,7 @@ public class BookingDAO implements BaseDAO<Booking> {
     public boolean delete(int id) {
         String sql = "DELETE FROM Booking WHERE bookingID=?";
         
-        try (Connection conn = DatabaseInfo.getConnect();
+        try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);

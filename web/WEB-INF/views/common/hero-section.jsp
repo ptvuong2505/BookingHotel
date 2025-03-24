@@ -32,7 +32,7 @@
     <!-- Nội dung đặt phòng -->
     <!-- Form đặt phòng -->
 <div class="search-box bg-white p-4 rounded shadow">
-    <div class="row">
+    <form action="RoomController" method="post" class="row">
         <!-- Chọn Hotel -->
         <div class="col-md-3">
             <select class="form-select" name="hotel">
@@ -65,9 +65,9 @@
 
         <!-- Nút tìm kiếm -->
         <div class="col-md-2">
-            <button class="btn btn-primary w-100">Search</button>
+            <button type="submit" class="btn btn-primary w-100">Search</button>
         </div>
-    </div>
+    </form>
 </div>
 
 <!-- JavaScript để giới hạn ngày -->

@@ -4,7 +4,7 @@ import model.Hotel;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import model.DatabaseInfo;
+import database.*;
 import database.*;
 
 public class HotelDAO implements BaseDAO<Hotel> {
