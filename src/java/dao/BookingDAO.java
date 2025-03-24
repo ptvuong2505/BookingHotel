@@ -123,4 +123,63 @@ public class BookingDAO implements BaseDAO<Booking> {
         }
         return false;
     }
+    
+    public Booking getLastBooking() {
+        Booking booking = null;
+        String sql = "SELECT TOP 1 * FROM Booking ORDER BY BookingID DESC";
+
+        try (Connection conn = DBConnection.getConnect();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            
+            if (rs.next()) {
+                int bookingId = rs.getInt("BookingID");
+                int customerId = rs.getInt("CustomerID");
+                int roomId = rs.getInt("RoomID");
+                int hotelID = rs.getInt("HotelID");
+                Date checkIn = rs.getDate("CheckInDate");
+                Date checkOut = rs.getDate("CheckOutDate");
+                double totalPrice = rs.getDouble("TotalPrice"); // Lấy giá trị totalPrice
+                String status = rs.getString("Status"); // Lấy giá trị status
+
+                booking = new Booking(bookingId, customerId, roomId,hotelID, checkIn, checkOut, totalPrice, status);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return booking;
+    }
+    
+    public List<Booking> getBookingsByCustomerId(int customerId) {
+        List<Booking> bookings = new ArrayList<>();
+        String sql = "SELECT * FROM Booking WHERE CustomerID = ? ORDER BY BookingID DESC";
+
+        try (Connection conn = DBConnection.getConnect();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, customerId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int bookingId = rs.getInt("BookingID");
+                int roomId = rs.getInt("RoomID");
+                int hotelId = rs.getInt("HotelID");
+                Date checkIn = rs.getDate("CheckInDate");
+                Date checkOut = rs.getDate("CheckOutDate");
+                double totalPrice = rs.getDouble("TotalPrice");
+                String status = rs.getString("Status");
+
+                Booking booking = new Booking(bookingId, customerId, roomId, hotelId, checkIn, checkOut, totalPrice, status);
+                bookings.add(booking);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return bookings;
+    }
+
+
+    
 }

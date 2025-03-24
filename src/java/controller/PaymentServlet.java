@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -53,6 +54,23 @@ public class PaymentServlet extends HttpServlet {
         booking.setTotalPrice(totalAmount);
         booking.setStatus("Pending");
         bookingDAO.insert(booking);
+        
+        booking=bookingDAO.getLastBooking();
+        InvoiceDAO invoiceDAO=new InvoiceDAO();
+        Invoice invoice=new Invoice();
+        
+        invoice.setBookingID(booking.getBookingID());
+        invoice.setPaymentDate(new Date());
+        invoice.setPaymentMethod(paymentMethod);
+        invoice.setPaymentStatus("Paid");
+        invoice.setTotalAmount(totalAmount);
+                
+                List<Booking> bookings=bookingDAO.getBookingsByCustomerId(customer.getCustomerID());
+        session.setAttribute("bookings", bookings);
+        invoiceDAO.insert(invoice);
+        
+        System.out.println(invoice.toString());
+        
         
         
         

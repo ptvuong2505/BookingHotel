@@ -6,13 +6,13 @@
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/web/WEB-INF/views/confirmation/confirmation.jsp</file>
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/web/WEB-INF/views/confirmation/service.jsp</file>
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/web/WEB-INF/views/payment/payment.jsp</file>
-            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/controller/LoginServlet.java</file>
-            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/web/WEB-INF/views/booking/bookingRoom.jsp</file>
-            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/web/WEB-INF/views/booking/select-room.jsp</file>
-            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/web/WEB-INF/views/confirmation/room-information.jsp</file>
-            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/controller/BookingController.java</file>
-            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/model/Service.java</file>
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/controller/HomeServlet.java</file>
+            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/controller/PaymentServlet.java</file>
+            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/model/Booking.java</file>
+            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/dao/BookingDAO.java</file>
+            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/controller/main.java</file>
+            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/dao/InvoiceDAO.java</file>
+            <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/model/Invoice.java</file>
         </group>
     </open-files>
 </project-private>

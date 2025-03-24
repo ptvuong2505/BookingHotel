@@ -78,7 +78,7 @@
         </div>
     </div>
 </form>
-<p>ID cua toom type : ${roomTypeID}</p>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
