@@ -1,28 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package controller;
 
 import dao.*;
 import  model.*;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.List;
+
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name = "PaymentServlet", urlPatterns = {"/payment"})
-public class PaymentServlet extends HttpServlet {
+@WebServlet(name = "EditProfileServlet", urlPatterns = {"/edit-profile"})
+public class EditProfileServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,48 +31,43 @@ public class PaymentServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session=request.getSession();
-        String paymentMethod=request.getParameter("paymentMethod");
-        double totalAmount=(double) session.getAttribute("totalAmount");
-        Room room= (Room) session.getAttribute("room");
-        Customer customer =(Customer) session.getAttribute("customer");
-        
-        
-        
-        BookingDAO bookingDAO=new BookingDAO();
-        
-        Booking booking=new  Booking();
-        booking.setCheckInDate((Date) session.getAttribute("checkInDate"));
-        booking.setCheckOutDate((Date) session.getAttribute("checkOutDate"));
-        booking.setCustomerID(customer.getCustomerID());
-        booking.setRoomID(room.getRoomID());
-        booking.setHotelID(room.getHotelID());
-        booking.setTotalPrice(totalAmount);
-        booking.setStatus("Pending");
-        bookingDAO.insert(booking);
-        
-        booking=bookingDAO.getLastBooking();
-        InvoiceDAO invoiceDAO=new InvoiceDAO();
-        Invoice invoice=new Invoice();
-        
-        invoice.setBookingID(booking.getBookingID());
-        invoice.setPaymentDate(new Date());
-        invoice.setPaymentMethod(paymentMethod);
-        invoice.setPaymentStatus("Paid");
-        invoice.setTotalAmount(totalAmount);
-                
-                List<Booking> bookings=bookingDAO.getBookingsByCustomerId(customer.getCustomerID());
-        session.setAttribute("bookings", bookings);
-        invoiceDAO.insert(invoice);
-        
-        System.out.println(invoice.toString());
-        
-        request.getRequestDispatcher("home").forward(request, response);
-        
-        
-        
-        
+        // Lấy thông tin từ form
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+
+        // Lấy thông tin người dùng từ session
+        HttpSession session = request.getSession();
+        Customer customer = (Customer) session.getAttribute("customer");
+
+        if (customer != null) {
+            // Cập nhật thông tin mới
+            customer.setName(name);
+            customer.setPhone(phone);
+            customer.setEmail(email);
+            customer.setAddress(address);
+
+            // Gọi DAO để cập nhật database
+            CustomerDAO dao = new CustomerDAO();
+            boolean success = dao.update(customer);
+
+            if (success) {
+                // Cập nhật lại session
+                session.setAttribute("customer", customer);
+                // Quay lại trang profile
+                request.getRequestDispatcher("home?action=profile").forward(request, response);
+            } else {
+                // Lỗi cập nhật
+                session.setAttribute("errorEdit", "Error when update your profile!!");
+                request.getRequestDispatcher("home?action=edit-profile").forward(request, response);
+            }
+        } else {
+            // Không tìm thấy user, quay lại login
+            request.getRequestDispatcher("home?action=login").forward(request, response);
+        }
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
