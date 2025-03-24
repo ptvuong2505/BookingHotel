@@ -134,4 +134,36 @@ public class RoomDAO implements BaseDAO<Room> {
         }
         return rooms;
     }
+    
+    
+    public List<Room> getRoomsByHotelId(int hotelId) {
+    List<Room> rooms = new ArrayList<>();
+    String sql = "SELECT * FROM Room WHERE HotelID = ?";
+    
+    try (Connection conn = DBConnection.getConnect();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        
+        stmt.setInt(1, hotelId);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            Room room = new Room(
+                rs.getInt("RoomID"),
+                rs.getString("RoomNumber"),
+                rs.getInt("RoomTypeID"),
+                rs.getInt("HotelID"),
+                rs.getDouble("Price"),
+                rs.getString("Status")
+            );
+            rooms.add(room);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    
+    return rooms;
+}
+
+    
+    
 }

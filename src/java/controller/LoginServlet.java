@@ -103,12 +103,15 @@ public class LoginServlet extends HttpServlet {
                     response.addCookie(userCookie);
                 }
             }else{
+                HttpSession session=request.getSession();
+                session.setAttribute("user", result);
                 // for admin
+                request.getRequestDispatcher("admin").forward(request, response);
             }
             response.sendRedirect(request.getContextPath() + "/home");
            
             //url = "index.jsp";
-        }else{
+        }else{ 
             request.setAttribute("username", username);
             request.setAttribute("errorMes", "Username or Password not correct!");
             url = "login.jsp";

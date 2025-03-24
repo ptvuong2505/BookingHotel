@@ -5,6 +5,7 @@
 package controller;
 
 import dao.BookingDAO;
+import dao.RoomDAO;
 import dao.RoomTypeDAO;
 import dao.ServiceDAO;
 import database.DBConnection;
@@ -23,10 +24,8 @@ import model.RoomType;
  */
 public class main {
     public static void main(String[] args) {
-        BookingDAO bookingDAO=new BookingDAO();
-        Booking booking=new Booking();
-        booking=bookingDAO.getLastBooking();
-        System.out.println(booking.toString());
+        RoomDAO dao=new RoomDAO();
+        System.out.println(dao.getRoomsByHotelId(1));
     }
     
     public static RoomType getById(int id) {
