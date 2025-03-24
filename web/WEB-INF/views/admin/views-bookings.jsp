@@ -12,7 +12,7 @@
 <body>
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <a href="admin-dashboard.jsp" class="btn btn-secondary">&larr; Quay lại</a>
+        <a href="admin" class="btn btn-secondary">&larr; Quay lại</a>
         <h2 class="text-center flex-grow-1">Danh sách đặt phòng</h2>
     </div>
 
