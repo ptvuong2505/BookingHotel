@@ -91,6 +91,11 @@ public class LoginServlet extends HttpServlet {
                 Customer customer = customerDAO.getById(result.getUserID());
                 HttpSession session = request.getSession();
                 session.setAttribute("customer", customer);
+                
+                BookingDAO bookingDAO=new BookingDAO();
+                List<Booking> bookings=bookingDAO.getBookingsByCustomerId(customer.getCustomerID());
+                
+                session.setAttribute("bookings", bookings);
                 session.setMaxInactiveInterval(30 * 60); // Session tồn tại 30 phút
                 if("on".equals(remember)){
                     Cookie userCookie = new Cookie("username", username);
