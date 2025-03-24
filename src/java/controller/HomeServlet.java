@@ -15,7 +15,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 import model.Hotel;
+import model.Service;
 
 /**
  *
@@ -86,15 +89,13 @@ public class HomeServlet extends HttpServlet {
                     request.getRequestDispatcher("/WEB-INF/views/auth/login.jsp").forward(request, response);
                     break;
                 }
+                List<Service> listService=new ArrayList<>();
+                
                 String[] selectedServices = request.getParameterValues("services");
-
-                if (selectedServices != null) {
-                    for (String service : selectedServices) {
-                        System.out.println("Dịch vụ đã chọn: " + service);
-                    }
-                } else {
-                    System.out.println("Không có dịch vụ nào được chọn............................");
+                for (String serviceID:selectedServices){
+                    listService.add(serviceDAO.getById(Integer.parseInt(serviceID)));
                 }
+                session.setAttribute("listService", listService);
 
                 request.getRequestDispatcher("/WEB-INF/views/payment/payment.jsp").forward(request, response);
                 break;
