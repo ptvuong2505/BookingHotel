@@ -49,7 +49,7 @@
             <div class="text-center">
                 <a href="home" class="btn btn-secondary">⬅ Quay lại</a>
                 <a href="home?action=edit-profile" class="btn btn-primary">✏ Chỉnh sửa</a>
-                <a href="home?action=logout" class="btn btn-danger">🚪 Đăng xuất</a>
+                <a href="LogoutServlet" class="btn btn-danger">🚪 Đăng xuất</a>
             </div>
 
     </div>

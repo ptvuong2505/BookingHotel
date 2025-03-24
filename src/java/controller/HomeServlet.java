@@ -102,6 +102,7 @@ public class HomeServlet extends HttpServlet {
             case "bookingHistory":
                 request.getRequestDispatcher("/WEB-INF/views/booking/bookingHistory.jsp").forward(request, response);
                 break;
+                
             case "profile":
                 request.getRequestDispatcher("/WEB-INF/views/auth/profile.jsp").forward(request, response);
                 break;
