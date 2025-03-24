@@ -38,8 +38,8 @@
     <body>
         <div class="success-container">
             <h3><i class="fa fa-check-circle fa-3x text-success"></i></h3>
-            <h2 class="my-3">Password Changed Successfully</h2>
-            <p>Your password has been updated. You can now log in with your new password.</p>
+            <h2 class="my-3">Register Successfully</h2>
+            <p>You can now log in with your account.</p>
             <a href="home?action=login" class="btn btn-primary w-100 btn-home">
                 <i class="fas fa-sign-in-alt"></i> Go to Login
             </a>

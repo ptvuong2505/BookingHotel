@@ -3,16 +3,38 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/web/WEB-INF/views/confirmation/confirmation.jsp</file>
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/web/WEB-INF/views/confirmation/service.jsp</file>
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/web/WEB-INF/views/payment/payment.jsp</file>
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/controller/HomeServlet.java</file>
+<<<<<<< HEAD
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/controller/PaymentServlet.java</file>
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/model/Booking.java</file>
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/dao/BookingDAO.java</file>
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/controller/main.java</file>
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/dao/InvoiceDAO.java</file>
             <file>file:/D:/FPT_SU25/PRJ301/ProjectDemo/BookingHotel/src/java/model/Invoice.java</file>
+=======
+=======
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/model/RoomType.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/database/DBConnection.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/database/DatabaseInfor.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/HomeServlet.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/confirmation/confirmation.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/booking/select-room.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/booking/bookingRoom.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/BookingController.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/dao/RoomDAO.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/home/home.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/booking/bookingService.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/auth/register.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/confirmation/service.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/common/hero-section.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/model/Booking.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/RoomController.java</file>
+>>>>>>> vuong
+>>>>>>> bb1ea59d5ad9f941a4f316e0157e03cfdc29aaa0
         </group>
     </open-files>
 </project-private>
