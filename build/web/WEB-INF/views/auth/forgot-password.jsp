@@ -28,7 +28,7 @@
         <div class="forgot-container text-center">
             <h3><i class="fa fa-envelope fa-3x text-primary"></i></h3>
             <h2 class="my-3">Forgot Password?</h2>
-            <p ><%= request.getAttribute("message")!=null ? (request.getAttribute("message")) : "Enter your email to receive an OTP"%></p>
+            <p style="color: red" ><%= request.getAttribute("message")!=null ? (request.getAttribute("message")) : "Enter your email to receive an OTP"%></p>
             <form action="send-otp" method="post" onsubmit="disableButton()">
                 <div class="mb-3">
                     <div class="input-group">

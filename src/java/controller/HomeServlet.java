@@ -61,7 +61,6 @@ public class HomeServlet extends HttpServlet {
             case "forgot-password":
                 request.getRequestDispatcher("/WEB-INF/views/auth/forgot-password.jsp").forward(request, response);
                 break;
-
             case "booking":
                 if (session.getAttribute("customer")==null){
                     request.getRequestDispatcher("/WEB-INF/views/auth/login.jsp").forward(request, response);

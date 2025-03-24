@@ -11,7 +11,7 @@
             <!-- Menu -->
             <div class="header-service" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="home?action=bookingVehicle">Offers</a>
                         <ul class="dropdown-menu">

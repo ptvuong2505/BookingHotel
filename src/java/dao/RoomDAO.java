@@ -108,7 +108,8 @@ public class RoomDAO implements BaseDAO<Room> {
     
     public List<Room> getRoomsByFilter(int hotelID, int roomTypeID) {
         List<Room> rooms = new ArrayList<>();
-        String sql = "SELECT RoomID, RoomNumber, RoomTypeID, HotelID, Price, Status FROM Room WHERE HotelID = ? AND RoomTypeID = ?";
+        String sql = "SELECT RoomID, RoomNumber, RoomTypeID, HotelID, Price, Status FROM Room WHERE HotelID = ? AND RoomTypeID = ? "
+                + "AND Status= 'Available'";
 
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)){
@@ -124,7 +125,7 @@ public class RoomDAO implements BaseDAO<Room> {
                     rs.getInt("RoomTypeID"),
                     rs.getInt("HotelID"),
                     rs.getDouble("Price"),
-                    rs.getString("Status")
+                    "Available"
                 );
                 rooms.add(room);
             }

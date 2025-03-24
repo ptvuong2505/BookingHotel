@@ -126,7 +126,7 @@
                 <%@ include file="/WEB-INF/views/confirmation/room-information.jsp" %>
 
                 <!-- Form xác nhận đặt phòng -->
-                <form action="BookingServlet" method="POST" onsubmit="return validateDates()">
+                <form action="home?action=payment" method="POST" onsubmit="return validateDates()">
                     <div class="date-inputs">
                         <div>
                             <label>Check-in Date:</label>
@@ -153,9 +153,8 @@
                     <input type="hidden" name="description" value="<%= description%>">
                     <input type="hidden" name="capacity" value="<%= capacity%>">
                     <input type="hidden" name="price" value="<%= price%>">
-
                     <div class="d-grid mt-4">
-                        <a href="home?action=payment" type="submit" class="btn btn-primary" >Confirm Booking</a>
+                        <button type="submit" class="btn btn-primary" > Confirm Booking</button>
                     </div>
                 </form>
             </div>

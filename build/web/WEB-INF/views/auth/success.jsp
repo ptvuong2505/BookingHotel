@@ -32,7 +32,7 @@
     </head>
     <script>
         setTimeout(function () {
-            window.location.href = "/WEB-INF/views/home/home.jsp";
+            window.location.href = "home";
         }, 5000);
     </script>
     <body>
