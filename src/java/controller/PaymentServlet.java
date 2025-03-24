@@ -4,6 +4,8 @@
  */
 package controller;
 
+import dao.*;
+import  model.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,13 +13,16 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name = "PaymentController", urlPatterns = {"/payment"})
-public class PaymentController extends HttpServlet {
+@WebServlet(name = "PaymentServlet", urlPatterns = {"/payment"})
+public class PaymentServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,6 +35,46 @@ public class PaymentController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session=request.getSession();
+        String paymentMethod=request.getParameter("paymentMethod");
+        double totalAmount=(double) session.getAttribute("totalAmount");
+        Room room= (Room) session.getAttribute("room");
+        Customer customer =(Customer) session.getAttribute("customer");
+        
+        
+        
+        BookingDAO bookingDAO=new BookingDAO();
+        
+        Booking booking=new  Booking();
+        booking.setCheckInDate((Date) session.getAttribute("checkInDate"));
+        booking.setCheckOutDate((Date) session.getAttribute("checkOutDate"));
+        booking.setCustomerID(customer.getCustomerID());
+        booking.setRoomID(room.getRoomID());
+        booking.setHotelID(room.getHotelID());
+        booking.setTotalPrice(totalAmount);
+        booking.setStatus("Pending");
+        bookingDAO.insert(booking);
+        
+        booking=bookingDAO.getLastBooking();
+        InvoiceDAO invoiceDAO=new InvoiceDAO();
+        Invoice invoice=new Invoice();
+        
+        invoice.setBookingID(booking.getBookingID());
+        invoice.setPaymentDate(new Date());
+        invoice.setPaymentMethod(paymentMethod);
+        invoice.setPaymentStatus("Paid");
+        invoice.setTotalAmount(totalAmount);
+                
+                List<Booking> bookings=bookingDAO.getBookingsByCustomerId(customer.getCustomerID());
+        session.setAttribute("bookings", bookings);
+        invoiceDAO.insert(invoice);
+        
+        System.out.println(invoice.toString());
+        
+        request.getRequestDispatcher("home").forward(request, response);
+        
+        
+        
         
     }
 

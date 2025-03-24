@@ -72,6 +72,10 @@
     </nav>
 <%@ include file="/WEB-INF/views/booking/select-room.jsp" %>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fb66841bc4acf4dd9b01995a2a5f3c5e0807a6ea
 <section class="container room-section">
     <div class="row justify-content-center">
         <c:forEach var="room" items="${rooms}">

@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.BookingDAO;
 import dao.RoomTypeDAO;
 import dao.ServiceDAO;
 import database.DBConnection;
@@ -11,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import model.Booking;
 import model.Hotel;
 import model.Room;
 import model.RoomType;
@@ -21,14 +23,10 @@ import model.RoomType;
  */
 public class main {
     public static void main(String[] args) {
-        //RoomTypeDAO dao=new RoomTypeDAO();
-        RoomType room=new RoomType();
-        
-        
-        ServiceDAO dao=new ServiceDAO();
-        dao.getAll();
-        
-        System.out.println(dao.getAll());
+        BookingDAO bookingDAO=new BookingDAO();
+        Booking booking=new Booking();
+        booking=bookingDAO.getLastBooking();
+        System.out.println(booking.toString());
     }
     
     public static RoomType getById(int id) {

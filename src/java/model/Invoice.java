@@ -13,18 +13,17 @@ public class Invoice {
     private String paymentMethod;
     private String paymentStatus;
     private Date paymentDate;
-    private String transactionID;
+    
 
     public Invoice() {}
 
-    public Invoice(int invoiceID, int bookingID, double totalAmount, String paymentMethod, String paymentStatus, Date paymentDate, String transactionID) {
+    public Invoice(int invoiceID, int bookingID, double totalAmount, String paymentMethod, String paymentStatus, Date paymentDate) {
         this.invoiceID = invoiceID;
         this.bookingID = bookingID;
         this.totalAmount = totalAmount;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
         this.paymentDate = paymentDate;
-        this.transactionID = transactionID;
     }
 
     public int getInvoiceID() {
@@ -75,12 +74,6 @@ public class Invoice {
         this.paymentDate = paymentDate;
     }
 
-    public String getTransactionID() {
-        return transactionID;
-    }
-
-    public void setTransactionID(String transactionID) {
-        this.transactionID = transactionID;
-    }
+    
 }
 

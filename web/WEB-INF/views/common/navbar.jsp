@@ -44,6 +44,8 @@
             <div class="header-login d-flex align-items-center">
                 <span class="me-3" style="color: #FF9900">Xin chào, <strong><%= customer.getName()%></strong></span>
                 <a href="home?action=booking" class="btn-custom btn-primary-custom me-2">Booking now</a>
+                <a href="home?action=bookingHistory" class="btn-custom btn-primary-custom me-2">History</a>
+                <a href="home?action=profile" class="btn-custom btn-primary-custom me-2">Profile</a>
                 <a href="LogoutServlet" class="btn-custom me-2">Logout</a>
             </div>
             <% }%>
