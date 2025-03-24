@@ -56,17 +56,20 @@ public class RoomController extends HttpServlet {
             session.setAttribute("checkInDate", checkInDate);
             session.setAttribute("checkOutDate", checkOutDate);
         } catch (Exception e) {
+            System.out.println("Can not parse Date");
         }
         
         int hotelID = (hotelIDParam != null && !hotelIDParam.isEmpty()) ? Integer.parseInt(hotelIDParam) : 0;
         int roomTypeID = (roomTypeIDParam != null && !roomTypeIDParam.isEmpty()) ? Integer.parseInt(roomTypeIDParam) : 0;
         session.setAttribute("hotelID", hotelID);
         session.setAttribute("roomTypeID", roomTypeID);
-        System.out.println("ID hotel : "+hotelID);
+        
         RoomDAO roomDAO = new RoomDAO();
         List<Room> rooms = roomDAO.getRoomsByFilter(hotelID, roomTypeID);
+        
         HotelDAO hotelDAO=new HotelDAO();
-        RoomTypeDAO roomTypeDAO=new  RoomTypeDAO();
+        
+        RoomTypeDAO roomTypeDAO= new RoomTypeDAO();
         
         session.setAttribute("typeName",roomTypeDAO.getById(roomTypeID).getTypeName() );
         session.setAttribute("hotelName",hotelDAO.getById(hotelID).getName());

@@ -90,6 +90,33 @@
             }
         });
 
+
         updateReview();
     });
 </script>
+<!-- JavaScript để giới hạn ngày -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let checkInInput = document.getElementById("checkInDate");
+        let checkOutInput = document.getElementById("checkOutDate");
+
+        let today = new Date().toISOString().split("T")[0]; // Lấy ngày hôm nay (YYYY-MM-DD)
+
+        // Đặt giá trị mặc định nếu không có trong session
+        if (!checkInInput.value) {
+            checkInInput.value = today;
+        }
+        if (!checkOutInput.value || checkOutInput.value < checkInInput.value) {
+            checkOutInput.value = checkInInput.value;
+        }
+
+        // Giới hạn ngày nhỏ nhất có thể chọn
+        checkInInput.min = today;
+        checkOutInput.min = checkInInput.value;
+
+        // Khi chọn ngày check-in, cập nhật ngày check-out tối thiểu
+
+    });
+</script>
+
+

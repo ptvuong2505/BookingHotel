@@ -153,9 +153,12 @@
                     <input type="hidden" name="description" value="<%= description%>">
                     <input type="hidden" name="capacity" value="<%= capacity%>">
                     <input type="hidden" name="price" value="<%= price%>">
-
                     <div class="d-grid mt-4">
+<<<<<<< HEAD
                         <button  type="submit" class="btn btn-primary" >Confirm Booking</button>
+=======
+                        <button type="submit" class="btn btn-primary" > Confirm Booking</button>
+>>>>>>> vuong
                     </div>
                 </form>
             </div>

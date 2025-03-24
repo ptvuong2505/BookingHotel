@@ -135,7 +135,7 @@ public class RegisterServlet extends HttpServlet {
             customer.setPhone(phone);
             customer.setAddress(address);
             new CustomerDAO().insert(customer);
-            request.getRequestDispatcher("/WEB-INF/views/auth/success.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/auth/register-success.jsp").forward(request, response);
         }
 
     }
