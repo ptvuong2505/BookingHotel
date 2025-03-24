@@ -26,7 +26,7 @@
 <%@ include file="/WEB-INF/views/common/navbar.jsp" %>
 <%@ include file="/WEB-INF/views/booking/select-room.jsp" %>
 
-<
+
 <section class="container room-section">
     <div class="row justify-content-center">
         <c:forEach var="room" items="${rooms}">

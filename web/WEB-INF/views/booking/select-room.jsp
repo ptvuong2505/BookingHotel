@@ -4,11 +4,27 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.Hotel"%>
 <%@page import="java.util.List"%>
-<%;
+
+<%
+//    List<Hotel> hotels = (List<Hotel>) session.getAttribute("hotels");
+//    List<RoomType> roomTypes = (List<RoomType>) session.getAttribute("roomTypes");
+//    
+//    
+//    try {
+//            int roomTypeID = (int) session.getAttribute("roomTypeID");
+//            int hotelID = (int) session.getAttribute("hotelID");
+//            Date checkInDate = (Date) session.getAttribute("checkInDate");
+//            String hotelName = (String) session.getAttribute("hotelName");
+//            String typeName = (String) session.getAttribute("typeName");
+//        } catch (Exception e) {
+//        }
+//    
+
     Date checkInDate = (Date) session.getAttribute("checkInDate");
     Date checkOutDate = (Date) session.getAttribute("checkOutDate");
     String formattedcheckInDate = (checkInDate != null) ? new SimpleDateFormat("yyyy-MM-dd").format(checkInDate) : "";
     String formattedcheckOutDate = (checkOutDate != null) ? new SimpleDateFormat("yyyy-MM-dd").format(checkOutDate) : "";
+
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,7 +32,7 @@
     <div class="row d-flex align-items-center">
         <!-- Chọn khách sạn -->
         <div class="col-md-3">
-            <select class="form-select" name="hotel" >
+            <select class="form-select" name="hotel" required >
 
                 <c:choose>
                     <c:when test="${not empty hotelName}">
@@ -48,7 +64,7 @@
 
         <!-- Chọn loại phòng -->
         <div class="col-md-3">
-            <select class="form-select" name="roomType">
+            <select class="form-select" name="roomType" required>
 
                 <c:choose>
                     <c:when test="${not empty typeName}">
@@ -70,6 +86,7 @@
         </div>
     </div>
 </form>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

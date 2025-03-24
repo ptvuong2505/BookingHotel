@@ -24,8 +24,7 @@ public class InvoiceDAO implements BaseDAO<Invoice> {
                         rs.getDouble("totalAmount"),
                         rs.getString("paymentMethod"),
                         rs.getString("paymentStatus"),
-                        rs.getDate("paymentDate"),
-                        rs.getString("transactionID")
+                        rs.getDate("paymentDate")
                 );
                 invoices.add(invoice);
             }
@@ -51,8 +50,7 @@ public class InvoiceDAO implements BaseDAO<Invoice> {
                             rs.getDouble("totalAmount"),
                             rs.getString("paymentMethod"),
                             rs.getString("paymentStatus"),
-                            rs.getDate("paymentDate"),
-                            rs.getString("transactionID")
+                            rs.getDate("paymentDate")
                     );
                 }
             }
@@ -64,7 +62,7 @@ public class InvoiceDAO implements BaseDAO<Invoice> {
 
     @Override
     public boolean insert(Invoice invoice) {
-        String sql = "INSERT INTO Invoice (bookingID, totalAmount, paymentMethod, paymentStatus, paymentDate, transactionID) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Invoice (bookingID, totalAmount, paymentMethod, paymentStatus, paymentDate) VALUES (?, ?, ?, ?, ?)";
         
         try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -74,7 +72,7 @@ public class InvoiceDAO implements BaseDAO<Invoice> {
             stmt.setString(3, invoice.getPaymentMethod());
             stmt.setString(4, invoice.getPaymentStatus());
             stmt.setDate(5, new java.sql.Date(invoice.getPaymentDate().getTime()));
-            stmt.setString(6, invoice.getTransactionID());
+            
             
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -85,7 +83,7 @@ public class InvoiceDAO implements BaseDAO<Invoice> {
 
     @Override
     public boolean update(Invoice invoice) {
-        String sql = "UPDATE Invoice SET bookingID = ?, totalAmount = ?, paymentMethod = ?, paymentStatus = ?, paymentDate = ?, transactionID = ? WHERE invoiceID = ?";
+        String sql = "UPDATE Invoice SET bookingID = ?, totalAmount = ?, paymentMethod = ?, paymentStatus = ?, paymentDate = ? WHERE invoiceID = ?";
         
         try (Connection conn = DBConnection.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -95,8 +93,8 @@ public class InvoiceDAO implements BaseDAO<Invoice> {
             stmt.setString(3, invoice.getPaymentMethod());
             stmt.setString(4, invoice.getPaymentStatus());
             stmt.setDate(5, new java.sql.Date(invoice.getPaymentDate().getTime()));
-            stmt.setString(6, invoice.getTransactionID());
-            stmt.setInt(7, invoice.getInvoiceID());
+            
+            stmt.setInt(6, invoice.getInvoiceID());
             
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
