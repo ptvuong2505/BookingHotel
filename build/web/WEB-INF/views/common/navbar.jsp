@@ -1,11 +1,11 @@
-<%@page import="model.Customer"   %>
+<%@page import="model.Customer"%>
 <body>
     <!--Header-->
     <nav class="navbar navbar-expand-lg custom-navbar fixed-top shadow-sm">
         <div class="container d-flex justify-content-between align-items-center">
             <!-- Logo --> 
             <div class="header-logo">
-                <img src="images/QuangDaLogo.jpg" alt="Qu?ng ?à Hotel" class="logo">
+                <a href="home" ><img src="images/QuangDaLogo.jpg" alt="Qu?ng ?à Hotel" class="logo"></a>
             </div>
 
             <!-- Menu -->
@@ -27,12 +27,6 @@
                             <li><a href="home?action=bookingService">Lunch</a></li>
                             <li><a href="home?action=bookingService">Dining</a></li>
                             <li><a href="home?action=bookingService">Water</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">Meeting event</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Request For Proposal</a></li>
                         </ul>
                     </li>
                 </ul>

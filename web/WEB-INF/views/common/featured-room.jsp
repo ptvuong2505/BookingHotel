@@ -49,12 +49,3 @@
         </button>
     </div>
 </section>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let carousel = new bootstrap.Carousel(document.getElementById("roomCarousel"), {
-            interval: 5000,
-            ride: "carousel"
-        });
-    });
-</script>

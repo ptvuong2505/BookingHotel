@@ -2,10 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.Hotel"%>
 <%@page import="java.util.List"%>
-<%
-    List<Hotel> hotels = (List<Hotel>) session.getAttribute("hotels");
-    List<RoomType> roomTypes = (List<RoomType>) session.getAttribute("roomTypes");
-%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header class="hero position-relative">
@@ -35,8 +31,8 @@
         <form action="RoomController" method="post" class="row">
             <!-- Chọn Hotel -->
             <div class="col-md-3">
-                <select class="form-select" name="hotel">
-                    <option selected>Select Hotel</option>
+                <select class="form-select" name="hotel" required>
+                    <option value="" selected>Select Hotel</option>
                     <c:forEach var="hotel" items="${hotels}">
                         <option value="${hotel.hotelID}">${hotel.name}</option>
                     </c:forEach>
@@ -55,7 +51,7 @@
 
             <!-- Chọn loại phòng -->
             <div class="col-md-3">
-                <select class="form-select" name="roomType">
+                <select class="form-select" name="roomType" required>
                     <option selected>Room Type</option>
                     <c:forEach var="room" items="${roomTypes}">
                         <option value="${room.roomTypeID}">${room.typeName}</option>

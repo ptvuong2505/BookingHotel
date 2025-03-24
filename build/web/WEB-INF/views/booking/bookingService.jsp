@@ -50,21 +50,13 @@
                                         <h5>Choose Your Meal</h5>
                                         <select class="form-select mb-3" id="meal-select">
                                             <option value="" selected>Select a Meal</option>
-                                            <option value="Breakfast">Buffet Breakfast - 200.000 VNĐ</option>
-                                            <option value="Lunch">Lunch Set - 300.000 VNĐ</option>
-                                            <option value="Dinner">Dinner Set - 350.000 VNĐ</option>
+                                            <option value="Breakfast">Buffet Breakfast - 10.00 USD</option>
+                                            <option value="Lunch">Lunch Set - 15.00 USD</option>
+                                            <option value="Dinner">Dinner Set - 20.00 USD</option>
                                         </select>
 
-                                        <!-- Số lượng người dùng -->
-                                        <label for="meal-quantity" class="form-label">Number of People:</label>
-                                        <input type="number" id="meal-quantity" class="form-control mb-3" min="1" value="1">
-
-                                        <!-- Ghi chú thêm -->
-                                        <label for="meal-note" class="form-label">Special Requests:</label>
-                                        <textarea id="meal-note" class="form-control mb-3" rows="2" placeholder="Enter any special requests..."></textarea>
-
                                         <div class="price-note">Per Person (Excluding taxes and fees)</div>
-                                        <a href="home?action=confirmation" class="book-now-button">Booking now</a>
+                                        <a href="home?action=booking" class="book-now-button">Booking now</a>
                                     </div>
                                 </div>
                             </div>
@@ -99,18 +91,10 @@
                                         <h5>Choose Your Drink</h5>
                                         <select class="form-select mb-3" id="drink-select">
                                             <option value="" selected>Select a Drink</option>
-                                            <option value="Coffee">Coffee - 50.000 VNĐ</option>
-                                            <option value="Juice">Fresh Juice - 70.000 VNĐ</option>
-                                            <option value="SoftDrink">Soft Drinks - 40.000 VNĐ</option>
+                                            <option value="Coffee">Coffee - 3.00 USD</option>
+                                            <option value="Juice">Fresh Juice - 4.00 USD</option>
+                                            <option value="SoftDrink">Soft Drinks - 2.00 USD</option>
                                         </select>
-
-                                        <!-- Số lượng người dùng -->
-                                        <label for="drink-quantity" class="form-label">Number of Drinks:</label>
-                                        <input type="number" id="drink-quantity" class="form-control mb-3" min="1" value="1">
-
-                                        <!-- Ghi chú thêm -->
-                                        <label for="drink-note" class="form-label">Special Requests:</label>
-                                        <textarea id="drink-note" class="form-control mb-3" rows="2" placeholder="Enter any special requests..."></textarea>
 
                                         <div class="price-note">Per Drink (Excluding taxes and fees)</div>
                                         <a href="home?action=confirmation" class="book-now-button">Booking now</a>
@@ -122,61 +106,7 @@
                 </div>
             </div>
         </section>
-        <footer>
-            <div class="footer-container">
-                <div class="footer-column">
-                    <img src="images/QuangDaLogo.jpg" alt="QuangDa Logo">
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p>📧 enquiry@QuangDa.com</p>
-                    <p>☎️ Hotline: +84 (0) 235 858 8888</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <p >🔗 Facebook</p>
-                        <p>🔗 LinkedIn</p>
-                        <p>🔗 Instagram</p>
-                        <p>🔗 YouTube</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="logo-section">
-
-                <div>
-                    <span>NEW WORLD</span>
-                    QUANGDA BEACH RESORT<br>
-                    VIETNAM
-                </div>
-                <div>
-                    <span>NEW WORLD</span>
-                    QUANGDA HOTEL<br>
-                    VIETNAM
-                </div>
-                <div>
-                    <span>QUANGDA</span>
-                    HOTEL × SUITES
-                </div>
-                <div>
-                    <span>RESIDENCES</span>
-                    QUANGDA
-                </div>
-                <div>
-                    <span>QUANGDA SHORES</span>
-                    GOLF CLUB
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                © Copyright 2025 QuangDa<br>
-                Hoi An South Development LTD<br>
-                Address: Tay Son Tay Hamlet, Duy Hai Commune, Duy Xuyen District, Quang Nam Province, Vietnam<br>
-                Business Registration Certificate: 4000789705 issued on 10/12/2010, sixteenth updated on 25/08/2022 by Quang Nam Department of Planning and Investment
-            </div>
-        </footer>
+        <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 
 </html>
 

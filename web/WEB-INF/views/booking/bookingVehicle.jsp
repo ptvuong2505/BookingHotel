@@ -47,17 +47,11 @@
                                     <div>
                                         <select class="form-select mb-3" id="vehicle-select">
                                             <option value="" selected>Select a Vehicle</option>
-                                            <option value="Motorbike">Motorbike - 150.000 VNĐ / day</option>
-                                            <option value="Car">Car - 1.000.000 VNĐ / day</option>
+                                            <option value="Motorbike">Motorbike - 25.99 USD / day</option>
+                                            <option value="Car">Car - 49.99 USD / day</option>
                                         </select>
 
-                                        <label for="vehicle-days" class="form-label">Number of Vehicle:</label>
-                                        <input type="number" id="vehicle-days" class="form-control mb-3" min="1" value="1">
-
-                                        <label for="vehicle-note" class="form-label">Special Requests:</label>
-                                        <textarea id="vehicle-note" class="form-control mb-3" rows="2" placeholder="Enter any special requests..."></textarea>
-
-                                        <a href="home?action=confirmation" class="book-now-button">Booking now</a>
+                                        <a href="home?action=booking" class="book-now-button">Booking now</a>
                                     </div>
                                 </div>
                             </div>
@@ -87,14 +81,8 @@
                                     <p>Book Your Golf Trip</p>
                                     <hr>
                                     <div>
-                                        <label for="golf-people" class="form-label">Number of People:</label>
-                                        <input type="number" id="golf-people" class="form-control mb-3" min="1" value="1">
-
-                                        <label for="golf-note" class="form-label">Special Requests:</label>
-                                        <textarea id="golf-note" class="form-control mb-3" rows="2" placeholder="Enter any special requests..."></textarea>
-
-                                        <div class="price-note">Cost: 2.000.000 VNĐ per person</div>
-                                        <a href="home?action=confirmation" class="book-now-button">Booking now</a>
+                                        <div class="price-note">Cost: 239.99 USD per person</div>
+                                        <a href="home?action=booking" class="book-now-button">Booking now</a>
                                     </div>
                                 </div>
                             </div>
@@ -105,61 +93,7 @@
         </section>
 
         <!--footer-->
-        <footer>
-            <div class="footer-container">
-                <div class="footer-column">
-                    <img src="images/QuangDaLogo.jpg" alt="QuangDa Logo">
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p>📧 enquiry@QuangDa.com</p>
-                    <p>☎️ Hotline: +84 (0) 235 858 8888</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <p >🔗 Facebook</p>
-                        <p>🔗 LinkedIn</p>
-                        <p>🔗 Instagram</p>
-                        <p>🔗 YouTube</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="logo-section">
-
-                <div>
-                    <span>NEW WORLD</span>
-                    QUANGDA BEACH RESORT<br>
-                    VIETNAM
-                </div>
-                <div>
-                    <span>NEW WORLD</span>
-                    QUANGDA HOTEL<br>
-                    VIETNAM
-                </div>
-                <div>
-                    <span>QUANGDA</span>
-                    HOTEL × SUITES
-                </div>
-                <div>
-                    <span>RESIDENCES</span>
-                    QUANGDA
-                </div>
-                <div>
-                    <span>QUANGDA SHORES</span>
-                    GOLF CLUB
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                © Copyright 2025 QuangDa<br>
-                Hoi An South Development LTD<br>
-                Address: Tay Son Tay Hamlet, Duy Hai Commune, Duy Xuyen District, Quang Nam Province, Vietnam<br>
-                Business Registration Certificate: 4000789705 issued on 10/12/2010, sixteenth updated on 25/08/2022 by Quang Nam Department of Planning and Investment
-            </div>
-        </footer>
+        <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 
 </html>
 

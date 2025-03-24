@@ -8,17 +8,25 @@
             <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/database/DatabaseInfor.java</file>
             <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/HomeServlet.java</file>
             <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/confirmation/confirmation.jsp</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/booking/select-room.jsp</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/booking/bookingRoom.jsp</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/BookingController.java</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/dao/RoomDAO.java</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/home/home.jsp</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/booking/bookingService.jsp</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/auth/register.jsp</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/confirmation/service.jsp</file>
             <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/common/hero-section.jsp</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/model/Booking.java</file>
             <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/RoomController.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/confirmation/room-information.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/controller/BookingController.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/booking/bookingRoom.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/confirmation/service.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/common/featured-room.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/common/footer.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/home/home.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/common/review-request.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/common/navbar.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/common/instagram.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/common/header.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/booking/select-room.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/dao/RoomDAO.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/booking/bookingVehicle.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/WEB-INF/views/booking/bookingService.jsp</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/src/java/dao/ServiceDAO.java</file>
+            <file>file:/C:/Users/ADMIN/OneDrive/Desktop/Final-Project/BookingHotel/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>

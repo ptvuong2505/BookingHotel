@@ -41,8 +41,7 @@ public class RoomController extends HttpServlet {
             throws ServletException, IOException, ParseException {
         HttpSession session=request.getSession();
         String hotelIDParam = request.getParameter("hotel");
-        String roomTypeIDParam = request.getParameter("roomType");
-        
+        String roomTypeIDParam = request.getParameter("roomType");   
             
         try {
             String checkInDateStr = request.getParameter("checkInDate");

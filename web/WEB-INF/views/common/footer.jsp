@@ -63,6 +63,98 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const reviews = [
+        {
+            text: "Wonderful hotel. QuangDa Hotel & Suites was facing the sea, superb views. It was spacious and exquisitely designed. Staff is friendly and willing to help. Will definitely come back!",
+            author: "MR. IGNACIO MANJON",
+            date: "Jan 2023"
+        },
+        {
+            text: "A truly luxurious experience. The rooms are beautifully designed and the views are breathtaking. The food was delicious and the service impeccable!",
+            author: "MRS. SARAH LEE",
+            date: "Feb 2023"
+        },
+        {
+            text: "Exceptional service and facilities. Highly recommended for anyone looking to relax and enjoy a high-end vacation experience.",
+            author: "MR. JAMES NGUYEN",
+            date: "Mar 2023"
+        },
+        {
+            text: "Beautiful hotel with amazing views. The pool was incredible and the rooms were spacious and luxurious. Will definitely visit again!",
+            author: "MRS. EMMA WILLIAMS",
+            date: "Apr 2023"
+        }
+    ];
+    let currentIndex = 0;
+    const reviewText = document.getElementById('reviewText');
+    const reviewAuthor = document.getElementById('reviewAuthor');
+    const reviewDate = document.getElementById('reviewDate');
+    const dotsContainer = document.querySelector('.dots');
+    function updateReview() {
+        const currentReview = reviews[currentIndex];
+        reviewText.innerHTML = currentReview.text;
+        reviewAuthor.innerHTML = currentReview.author;
+        reviewDate.innerHTML = currentReview.date;
+        let dotsHTML = "";
+        reviews.forEach((_, index) => {
+            dotsHTML += '<span class="dot ' + (index === currentIndex ? 'active-dot' : '') + '" data-index="' + index + '"></span>';
+        });
+        dotsContainer.innerHTML = dotsHTML;
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % reviews.length;
+        updateReview();
+    });
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+        updateReview();
+    });
+    dotsContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('dot')) {
+            currentIndex = parseInt(e.target.getAttribute('data-index'));
+            updateReview();
+        }
+    });
+    let carousel = new bootstrap.Carousel(document.getElementById("roomCarousel"), {
+        interval: 5000,
+        ride: "carousel"
+    });
+    updateReview();
+    
+        let checkInInput  = document.getElementById("checkInDate");
+        let checkOutInput = document.getElementById("checkOutDate");
+
+        let today = new Date().toISOString().split("T")[0]; // Lấy ngày hôm nay (YYYY-MM-DD)
+
+        console.log("Check-in trước khi xử lý:", checkInInput.value);
+        console.log("Check-out trước khi xử lý:", checkOutInput.value);
+        // Đặt giá trị mặc định nếu không có trong session
+        if (!checkInInput.value) {
+            checkInInput.value = today;
+        }
+        if (!checkOutInput.value || checkOutInput.value < checkInInput.value) {
+            checkOutInput.value = checkInInput.value;
+        }
+
+        // Giới hạn ngày nhỏ nhất có thể chọn
+        checkInInput.min = today;
+        checkOutInput.min = checkInInput.value;
+
+        // Khi chọn ngày check-in, cập nhật ngày check-out tối thiểu
+        checkInInput.addEventListener("change", function () {
+            checkOutInput.min = checkInInput.value;
+
+            // Nếu ngày check-out nhỏ hơn ngày check-in, tự động cập nhật
+            if (checkOutInput.value < checkInInput.value) {
+                checkOutInput.value = checkInInput.value;
+            }
+        });
+</script>
+
+</body>
+
+</html>
+
